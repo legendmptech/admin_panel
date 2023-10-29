@@ -2,7 +2,14 @@ import React from "react";
 import { commonColors, semanticColors } from "@nextui-org/react";
 import { IconContext } from "react-icons";
 import { SETTINGS } from "../configs";
-
+/**
+ *
+ * @param size - size of the icon | small , medium
+ * @param color - color of the icon |  blue, red,black,white
+ * @param onClick - callback
+ * @param Icon - Icon component to be rendered
+ * @returns
+ */
 function Icon(props) {
   const { Icon } = props;
   const clrs = {
@@ -12,12 +19,14 @@ function Icon(props) {
     white: commonColors.white,
   };
   const sizes = {
-    small: SETTINGS.ICON_SMALL,
-    medium: SETTINGS.ICON_MEDIUM,
+    sm: SETTINGS.ic_sm,
+    md: SETTINGS.ic_md,
+    lg: SETTINGS.ic_lg,
+    "2xlg": SETTINGS.ic_2xlg,
   };
   return (
     <IconContext.Provider
-      value={{ size: sizes[props.size], color: clrs[props.color] }}
+      value={{ size: sizes[props.size] || 36, color: clrs[props.color] }}
     >
       <span
         className={`cursor-pointer hover:outline-offset-1 outline-${props.color} p-1`}

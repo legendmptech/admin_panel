@@ -2,27 +2,35 @@ import { Button, Card, CardBody, Input, Tab, Tabs } from "@nextui-org/react";
 import React from "react";
 import { fstore } from "../../configs/firebase-config";
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import { useState } from "react";
-import { useEffect } from "react";
-
+import { useState, useEffect } from "react";
+import userData from "../../data/userData.json";
 function AuthPortfolio(props) {
   const { setAvailable, setUserData } = props;
   const [selected, setSelected] = useState("create");
-
+  const [isLoading, setIsLoading] = useState(false);
   const [loginUserId, setLoginUserId] = useState("");
   const [searchUserId, setSearchUserId] = useState("");
   const [isValidLoginId, setIsValidLoginId] = useState(false);
   const [isSearchIdUsed, setIsSearchIdUsed] = useState(true);
   const handleLoginId = async () => {
-    const docRef = doc(fstore, "portfolios", loginUserId);
-    try {
-      const docSnap = await getDoc(docRef);
+    if (loginUserId != "") {
+      setIsLoading(true);
+      const docRef = doc(fstore, "portfolios", loginUserId);
+      const docSnap = await getDoc(docRef).catch((err) =>
+        console.log(err.message)
+      );
       if (docSnap.exists()) {
-        setIsValidLoginId(false);
+        setIsValidLoginId(true);
+        setUserData(docSnap.data());
+        setAvailable(true);
         console.log(docSnap.data());
-      } else setIsValidLoginId(!isValidLoginId);
-    } catch (e) {
-      console.log(e.message);
+      } else {
+        setIsValidLoginId(false);
+      }
+
+      setIsLoading(false);
+    } else {
+      alert("Enter a valid User ID");
     }
   };
   const isIdExist = async (id) => {
@@ -38,58 +46,32 @@ function AuthPortfolio(props) {
     return false;
   };
   const handleSearchId = async () => {
-    if (await isIdExist(searchUserId)) {
-      setIsSearchIdUsed(true);
+    if (searchUserId === "") {
+      alert("Please enter the search user ID");
     } else {
-      setIsSearchIdUsed(false);
+      setIsLoading(true);
+      if (await isIdExist(searchUserId).catch((e) => setIsLoading(false))) {
+        setIsSearchIdUsed(true);
+      } else {
+        setIsSearchIdUsed(false);
+      }
+      setIsLoading(false);
     }
   };
-  const handleCreateUser = () => {
-    const data = {
-      personalDetails: {
-        name: "mohan",
-        email: "mohan@gmail.com",
-        userId: "s_mohan_prasat",
-        about: "This is mohan Prasath da kanna",
-      },
-      education: {
-        list: [],
-        data: {},
-      },
-      projects: {
-        list: [],
-        data: {},
-      },
-      experiences: {
-        list: [],
-        data: {},
-      },
-      achievements: {
-        list: [],
-        data: {},
-      },
-      skills: {
-        list: [1, 2, 3],
-        data: {},
-      },
-      sections: {
-        list: [],
-        data: {},
-      },
-      socialLinks: {
-        list: [],
-        data: {},
-      },
-    };
-    // const docRef = doc(fstore, "portfolios", searchUserId);
-    // await setDoc(docRef, data)
-    //   .then(() => {
-    //     setAvailable(true);
-    //   })
-    //   .catch((err) => console.log(err.message));
-    //TODO:ADD THE BELOW LINE INSIDE THE THEN FUNCTION ABOVE
-    setUserData(data);
-    setAvailable(true);
+  const handleCreateUser = async () => {
+    const data = { ...userData.userCreationTemplate, userId: searchUserId };
+    const docRef = doc(fstore, "portfolios", searchUserId);
+    setIsLoading(true);
+    await setDoc(docRef, data)
+      .then(() => {
+        setUserData(data);
+        setAvailable(true);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.log(err.message);
+        setIsLoading(false);
+      });
   };
   useEffect(() => {
     setIsSearchIdUsed(isSearchIdUsed);
@@ -112,6 +94,8 @@ function AuthPortfolio(props) {
                 placeholder="Enter User ID"
                 value={searchUserId}
                 onValueChange={(value) => setSearchUserId(value)}
+                isClearable={true}
+                onClear={() => setIsSearchIdUsed(true)}
                 description={
                   isSearchIdUsed == false
                     ? "you can use the User ID"
@@ -119,18 +103,24 @@ function AuthPortfolio(props) {
                 }
               />
               <div className="flex flex-row gap-2 justify-center">
-                <Button onClick={handleSearchId} fullWidth color="primary">
+                <Button
+                  onClick={handleSearchId}
+                  fullWidth
+                  color="primary"
+                  isLoading={isLoading}
+                  isDisabled={!isSearchIdUsed}
+                >
                   Search
                 </Button>
-                {isSearchIdUsed == true && (
-                  <Button
-                    onClick={handleCreateUser}
-                    fullWidth
-                    color="secondary"
-                  >
-                    Create User
-                  </Button>
-                )}
+                <Button
+                  onClick={handleCreateUser}
+                  fullWidth
+                  color="secondary"
+                  isLoading={isLoading}
+                  isDisabled={isSearchIdUsed}
+                >
+                  Create User
+                </Button>
               </div>
             </form>
           </Tab>
@@ -140,13 +130,20 @@ function AuthPortfolio(props) {
                 isRequired
                 label="User id"
                 placeholder="Enter User ID"
-                isInvalid={isValidLoginId}
-                errorMessage={isValidLoginId ? "User does not exist" : ""}
+                isInvalid={!isValidLoginId}
+                errorMessage={
+                  isValidLoginId == false ? "User does not exist" : ""
+                }
                 value={loginUserId}
                 onValueChange={(value) => setLoginUserId(value)}
               />
               <div className="flex gap-2 justify-end">
-                <Button onClick={handleLoginId} fullWidth color="primary">
+                <Button
+                  onClick={handleLoginId}
+                  fullWidth
+                  color="primary"
+                  isLoading={isLoading}
+                >
                   Login
                 </Button>
               </div>

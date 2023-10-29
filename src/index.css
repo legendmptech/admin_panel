@@ -48,3 +48,18 @@ code {
   background-color: black;
   color: white;
 }
+
+/* AUTHPORTFOLIO */
+.auth-card {
+  width: 85%;
+}
+@media screen and (min-width: 768px) {
+  .auth-card {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .auth-card {
+    width: 95%;
+  }
+}

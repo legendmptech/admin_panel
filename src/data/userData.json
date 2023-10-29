@@ -1,0 +1,35 @@
+{
+  "userCreationTemplate": {
+    "personalDetails": {
+      "name": "",
+      "email": "",
+      "about": "",
+      "oneLiner": ""
+    },
+    "education": {
+      "list": [],
+      "data": {}
+    },
+    "projects": {
+      "list": [],
+      "data": {}
+    },
+    "experiences": {
+      "list": [],
+      "data": {}
+    },
+    "achievements": {
+      "list": [],
+      "data": {}
+    },
+    "skills": {
+      "list": [1, 2, 3],
+      "data": {}
+    },
+    "sections": [],
+    "socialLinks": [],
+    "ui": {
+      "template": 1
+    }
+  }
+}
