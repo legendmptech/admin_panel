@@ -1,0 +1,20 @@
+{
+  "std": [
+    { "label": "Class 12", "value": "Class 12" },
+    { "label": "Class 10", "value": "Class 10" }
+  ],
+  "degree": [
+    { "label": "BE", "value": "BE" },
+    { "label": "ME", "value": "ME" },
+    { "label": "Bsc", "value": "Bsc" },
+    { "label": "Msc", "value": "Msc" },
+    { "label": "Ba", "value": "Ba" },
+    { "label": "Ma", "value": "Ma" },
+    { "label": "Bcom", "value": "Bcom" },
+    { "label": "Mcom", "value": "Mcom" },
+    { "label": "BEd", "value": "BEd" },
+    { "label": "MEd", "value": "MEd" },
+    { "label": "Mphil", "value": "Mphil" },
+    { "label": "PHD", "value": "PHD" }
+  ]
+}

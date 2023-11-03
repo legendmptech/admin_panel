@@ -1,0 +1,37 @@
+{
+  "userCreationTemplate": {
+    "personalDetails": {
+      "name": "",
+      "email": "",
+      "about": "",
+      "oneLiner": ""
+    },
+    "education": {
+      "list": [],
+      "data": {}
+    },
+    "projects": {
+      "list": [],
+      "data": {}
+    },
+    "experiences": {
+      "list": [],
+      "data": {}
+    },
+    "achievements": {
+      "list": [],
+      "data": {}
+    },
+    "skills": {
+      "computer skills": [],
+      "soft skills": [],
+      "software skills": []
+    },
+    "sections": [],
+    "socialLinks": [],
+    "ui": {
+      "template": 1,
+      "theme": "s6"
+    }
+  }
+}
