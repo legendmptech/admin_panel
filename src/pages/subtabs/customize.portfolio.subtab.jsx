@@ -54,7 +54,8 @@ function PortfolioCustomizeSubTab(props) {
     onOpenChange: onSocialOpenChange,
   } = useDisclosure();
 
-  const [currentModalProps, setCurrentModalProps] = useState({});
+  const [
+    currentModalProps, setCurrentModalProps] = useState({});
 
   //   details
   const [name, setName] = useState("");
@@ -120,18 +121,16 @@ function PortfolioCustomizeSubTab(props) {
       skills,
       userId: "s_mohan_prasath",
     };
-    console.log(data);
     const docRef = doc(fstore, "portfolios", "s_mohan_prasath");
     await setDoc(docRef, data)
       .then(() => {
         console.log("success");
-        console.log(data);
         setAvailable(false);
       })
       .catch((e) => console.log(e.message));
   };
   useEffect(() => {
-    if (available == true) {
+    if (available === true) {
       let pdetails = userData?.personalDetails;
       setName(pdetails.name);
       setEmail(pdetails.email);
@@ -144,13 +143,12 @@ function PortfolioCustomizeSubTab(props) {
       setAchievements(userData.achievements);
       setSocialLinks(userData.socialLinks);
       setSelectedSections(userData.sections);
-      console.log(name);
     }
   }, [available]);
   return (
     <>
       <div className="flex flex-row justify-center">
-        {available == false ? (
+        {available === false ? (
           <div className="flex flex-col auth-card">
             <AuthPortfolio
               setAvailable={setAvailable}

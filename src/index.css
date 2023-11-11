@@ -11,28 +11,47 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
 .t-container {
   display: flex;
   flex-direction: column;
 }
+
 .head1 {
   font-size: 1.2rem;
 }
+
 .head2 {
   font-size: 1.1rem;
 }
+
 .subtitle {
   font-size: 0.98rem;
   color: rgb(49, 49, 49);
 }
+
 .para {
   font-size: 0.9rem;
   color: rgb(62, 62, 62);
 }
+
 .url {
   font-size: 0.95rem;
 }
@@ -41,9 +60,11 @@ code {
   size: 16px;
   color: black;
 }
+
 .iconContainer {
   padding: 2px;
 }
+
 .iconContainer:hover {
   background-color: black;
   color: white;
@@ -53,11 +74,13 @@ code {
 .auth-card {
   width: 85%;
 }
+
 @media screen and (min-width: 768px) {
   .auth-card {
     width: 50%;
   }
 }
+
 @media screen and (max-width: 500px) {
   .auth-card {
     width: 95%;

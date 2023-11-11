@@ -1,32 +1,28 @@
 import React from "react";
-import { Tabs, Tab, Card, CardBody, CardHeader } from "@nextui-org/react";
+import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
 import HomeLayout from "../../layouts/Home.layout";
-import PortfolioCustomizeSubTab from "./portfolio.customize.subtab";
+import PortfolioCustomizeSubTab from "../subtabs/customize.portfolio.subtab";
+import PortfolioSettingsSubTab from "../subtabs/settings.portfolio.subtab";
 
 function PortfolioTab(props) {
-  let tabs = [
-    {
-      id: "customize",
-      label: "Customize",
-      content: <PortfolioCustomizeSubTab />,
-    },
-    {
-      id: "users",
-      label: "Users",
-      content: <h1>Hello</h1>,
-    },
-  ];
   return (
     <div className="flex flex-col h-full content-center">
-      <Tabs aria-label="Dynamic tabs" items={tabs}>
-        {(item) => (
-          <Tab key={item.id} title={item.label}>
-            <Card>
-              <CardHeader>Hello</CardHeader>
-              <CardBody>{item.content}</CardBody>
-            </Card>
-          </Tab>
-        )}
+      <Tabs aria-label="Dynamic tabs">
+        <Tab key={"customize"} title={"Customize"}>
+          <Card>
+            <CardBody><PortfolioCustomizeSubTab /></CardBody>
+          </Card>
+        </Tab>
+        <Tab key={"settings"} title={"Settings"}>
+          <Card>
+            <CardBody><PortfolioSettingsSubTab /></CardBody>
+          </Card>
+        </Tab>
+        <Tab key={"user"} title={"Users"}>
+          <Card>
+            <CardBody><h1>User</h1></CardBody>
+          </Card>
+        </Tab>
       </Tabs>
     </div>
   );
