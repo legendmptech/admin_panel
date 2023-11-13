@@ -8,9 +8,7 @@ import {
   ModalBody,
   ModalContent,
   ModalFooter,
-  ModalHeader,
-  Select,
-  SelectItem,
+  ModalHeader
 } from "@nextui-org/react";
 import { DatePicker } from "@mui/x-date-pickers";
 import { createId } from "../../functions/utility";
@@ -57,7 +55,7 @@ function EducationModal(props) {
       setEndSt(dayjs(end));
     }
   }, [isEducationOpen]);
-  const standardList = type === "school" ? uiData.std : uiData.degree;
+  // const standardList = type === "school" ? uiData.std : uiData.degree;
   const handleSavePress = () => {
     let data =
       type === "school"

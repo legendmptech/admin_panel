@@ -108,14 +108,14 @@ function AEPModal(props) {
   };
   useEffect(() => {
     console.log(id);
-    if (isAEPModalOpen == true && id !== undefined) {
+    if (isAEPModalOpen === true && id !== undefined) {
       setTitleSt(title);
       setDescSt(desc);
       setCompanySt(company);
       setUrlSt(url);
       setStartSt(dayjs(start));
       setEndSt(dayjs(end));
-    } else if (isAEPModalOpen == false) {
+    } else if (isAEPModalOpen === false) {
       setTitleSt("");
       setCompanySt("");
       setDescSt();
@@ -142,9 +142,8 @@ function AEPModal(props) {
                   autoFocus
                   isRequired
                   label={"Title"}
-                  placeholder={`Enter ${
-                    type === "experience" ? "job/internship" : type
-                  } title`}
+                  placeholder={`Enter ${type === "experience" ? "job/internship" : type
+                    } title`}
                   variant="flat"
                   value={titleSt}
                   onValueChange={(value) => setTitleSt(value)}

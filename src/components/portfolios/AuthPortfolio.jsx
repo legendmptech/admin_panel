@@ -13,7 +13,7 @@ function AuthPortfolio(props) {
   const [isValidLoginId, setIsValidLoginId] = useState(false);
   const [isSearchIdUsed, setIsSearchIdUsed] = useState(true);
   const handleLoginId = async () => {
-    if (loginUserId != "") {
+    if (loginUserId !== "") {
       setIsLoading(true);
       const docRef = doc(fstore, "portfolios", loginUserId);
       const docSnap = await getDoc(docRef).catch((err) =>
@@ -75,7 +75,7 @@ function AuthPortfolio(props) {
   };
   useEffect(() => {
     setIsSearchIdUsed(isSearchIdUsed);
-  }, [setIsSearchIdUsed]);
+  }, [isSearchIdUsed]);
   return (
     <Card className="">
       <CardBody className="overflow-hidden">
@@ -97,7 +97,7 @@ function AuthPortfolio(props) {
                 isClearable={true}
                 onClear={() => setIsSearchIdUsed(true)}
                 description={
-                  isSearchIdUsed == false
+                  isSearchIdUsed === false
                     ? "you can use the User ID"
                     : "User ID already exist"
                 }
@@ -132,7 +132,7 @@ function AuthPortfolio(props) {
                 placeholder="Enter User ID"
                 isInvalid={!isValidLoginId}
                 errorMessage={
-                  isValidLoginId == false ? "User does not exist" : ""
+                  isValidLoginId === false ? "User does not exist" : ""
                 }
                 value={loginUserId}
                 onValueChange={(value) => setLoginUserId(value)}

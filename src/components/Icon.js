@@ -1,5 +1,5 @@
 import React from "react";
-import { commonColors, semanticColors } from "@nextui-org/react";
+import { commonColors} from "@nextui-org/react";
 import { IconContext } from "react-icons";
 import { SETTINGS } from "../configs";
 /**

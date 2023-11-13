@@ -125,7 +125,7 @@ function PortfolioSettingsSubTab() {
     )
 }
 const SeasonModal = (props) => {
-    const { name, isAvailable, couponList, priceAfterDic, isSeasonOpen, onSeasonOpenChange, couponData, setCouponData } = props
+    const { name, couponList, priceAfterDic, isSeasonOpen, onSeasonOpenChange, couponData, setCouponData } = props
     const [nameSt, setNameSt] = useState("")
     const [isAvailableSt, setIsAvailableSt] = useState(true);
     const [priceSt, setPriceSt] = useState(0);
@@ -144,7 +144,7 @@ const SeasonModal = (props) => {
         }
         let seasonList = couponData?.season
         let seasonMap = couponData?.seasonMap
-        if (name == undefined) {
+        if (name === undefined) {
             data["couponList"] = []
             seasonList.push(nameSt)
             seasonMap[nameSt] = data

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Sidebar as Bar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
+import { Sidebar as Bar, Menu, MenuItem } from "react-pro-sidebar";
 import { Link } from "react-router-dom";
 import Icon from "./Icon";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";

@@ -7,7 +7,7 @@ import {
   ModalFooter,
   ModalHeader,
 } from "@nextui-org/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 const SkillModal = (props) => {
   const { isSkillOpen, onSkillOpenChange, skills, setSkills, category } = props;
   const [title, setTitle] = useState("");

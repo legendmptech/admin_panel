@@ -8,7 +8,7 @@ import { Chip } from "@nextui-org/react";
 function SkillChip(props) {
   const { key, label, category, state, setState, skill } = props;
   const handleSkillDelete = () => {
-    let lis = state[category]?.filter((s) => s != skill);
+    let lis = state[category]?.filter((s) => s !== skill);
     setState({ ...state, [category]: lis });
   };
   return (

@@ -22,7 +22,7 @@ import { GrEdit } from "react-icons/gr";
  */
 function AEPCard(props) {
   const {
-    id,
+    // id,
     type,
     title,
     desc,
