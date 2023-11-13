@@ -6,7 +6,6 @@ import { NextUIProvider } from "@nextui-org/react";
 import { BrowserRouter } from "react-router-dom";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { portfoliosRef } from "./configs/firebase-config";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

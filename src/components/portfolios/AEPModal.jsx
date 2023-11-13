@@ -107,7 +107,6 @@ function AEPModal(props) {
     }
   };
   useEffect(() => {
-    console.log(id);
     if (isAEPModalOpen === true && id !== undefined) {
       setTitleSt(title);
       setDescSt(desc);
@@ -124,7 +123,7 @@ function AEPModal(props) {
       setEndSt(dayjs());
     }
     console.log("Hello");
-  }, [isAEPModalOpen]);
+  }, [isAEPModalOpen, id, title, desc, company, url, start, end]);
   return (
     <>
       <Modal

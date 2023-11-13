@@ -144,7 +144,7 @@ function PortfolioCustomizeSubTab(props) {
       setSocialLinks(userData.socialLinks);
       setSelectedSections(userData.sections);
     }
-  }, [available]);
+  }, [available, userData?.achievements, userData?.education, userData?.experiences, userData?.personalDetails, userData?.projects, userData?.sections, userData?.skills, userData?.socialLinks]);
   return (
     <>
       <div className="flex flex-row justify-center">

@@ -130,13 +130,13 @@ const SeasonModal = (props) => {
     const [isAvailableSt, setIsAvailableSt] = useState(true);
     const [priceSt, setPriceSt] = useState(0);
     useEffect(() => {
-        if (isSeasonOpen === true && nameSt !== undefined) {
+        if (isSeasonOpen === true && name !== undefined) {
             setNameSt(name)
             setPriceSt(priceAfterDic)
         } else if (isSeasonOpen === false) {
             setNameSt(""); setPriceSt(0)
         }
-    }, [isSeasonOpen])
+    }, [isSeasonOpen, name, priceAfterDic])
     const handleSavaSeason = () => {
         let data = {
             isAvailable: isAvailableSt,

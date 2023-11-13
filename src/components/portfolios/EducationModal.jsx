@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
-import uiData from "./../../data/uiData.json";
 import {
   Button,
   Input,
@@ -54,27 +53,27 @@ function EducationModal(props) {
       setStartSt(dayjs(start));
       setEndSt(dayjs(end));
     }
-  }, [isEducationOpen]);
+  }, [isEducationOpen, id, place, percent, std, degree, branch, start, end]);
   // const standardList = type === "school" ? uiData.std : uiData.degree;
   const handleSavePress = () => {
     let data =
       type === "school"
         ? {
-            type,
-            place: placeSt,
-            std: stdSt,
-            percent: percentSt,
-            start: startSt.format("YYYY"),
-          }
+          type,
+          place: placeSt,
+          std: stdSt,
+          percent: percentSt,
+          start: startSt.format("YYYY"),
+        }
         : {
-            type,
-            place: placeSt,
-            degree: degreeSt,
-            percent: percentSt,
-            branch: branchSt,
-            start: startSt.format("YYYY"),
-            end: endSt.format("YYYY"),
-          };
+          type,
+          place: placeSt,
+          degree: degreeSt,
+          percent: percentSt,
+          branch: branchSt,
+          start: startSt.format("YYYY"),
+          end: endSt.format("YYYY"),
+        };
     if (!id) {
       const newId = createId();
       let eduList = educationList["list"];
