@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 import HomeLayout from "../../layouts/Home.layout";
 import { Button, useDisclosure } from "@nextui-org/react";
 import Icon from "../../components/Icon";
@@ -10,7 +10,7 @@ import {
   DropdownItem,
 } from "@nextui-org/react";
 import ClientInfoModal from "./../../components/clients/ClientInfo.modal";
-import ClientCard from "../../components/clients/Client.Card";
+// import ClientCard from "../../components/clients/Client.Card";
 
 function ClientTab(props) {
   const {

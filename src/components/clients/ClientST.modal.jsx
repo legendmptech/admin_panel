@@ -20,7 +20,7 @@ export default function ClientSTModal(props) {
   const [serviceIdSt1, setServiceIdSt1] = useState("");
   // const [services, setServices] = useState({});
   // const [transactions, setTransactions] = useState({});
-  const [_id, _setId] = useState("");
+  // const [_id, _setId] = useState("");
   // const [typeSt, setTypeSt] = useState("");
   // const [amountSt, setAmountSt] = useState(0);
   // const [startDateSt, setStartDateSt] = useState("");
