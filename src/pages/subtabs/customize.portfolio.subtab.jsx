@@ -157,7 +157,7 @@ function PortfolioCustomizeSubTab(props) {
   return (
     <>
       <div className="flex flex-row justify-center">
-        {available === true ? (
+        {available === false ? (
           <div className="flex flex-col auth-card">
             <AuthPortfolio
               setAvailable={setAvailable}
