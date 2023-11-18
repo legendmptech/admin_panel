@@ -1,0 +1,36 @@
+PROPS FOR SERVICES
+
+//CLIENTS
+const data = {
+    info:{
+        name:"",
+        id:"",
+        email:"",
+        mobileNo:"",
+        country:"",
+        state:"",
+        city:""
+    },
+    services:{
+        list:[ids],
+        data:{
+        id: {
+        name:"",
+        id:"", intha specific fomat
+        type:"web/mobile",
+        amount:0,
+        startDate:53958345,
+        nextRenewDate:53985395
+        }
+    }},
+    transactions:{
+        list:[ids],
+        data:{
+            id:{
+                date:"",
+                id:"",
+                serviceId:
+            }
+        }
+    }
+}

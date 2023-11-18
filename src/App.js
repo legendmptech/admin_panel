@@ -1,11 +1,13 @@
 import * as React from "react";
 // import { fstore } from "./configs/firebase-config";
 import {
-  Routes, Route,
+  Routes,
+  Route,
   // Navigate
 } from "react-router-dom";
 import HomePage from "./pages/home.page";
 import PortfolioTab from "./pages/tabs/portfolio.tab";
+import ClientTab from "./pages/tabs/client.tab";
 
 function App() {
   return (
@@ -13,6 +15,7 @@ function App() {
       {/* <Route path="" element={<Navigate to="/dashboard" />} /> */}
       <Route path="/" element={<HomePage />} />
       <Route path="/portfolio" element={<PortfolioTab />} />
+      <Route path="/client" element={<ClientTab />} />
     </Routes>
   );
 }

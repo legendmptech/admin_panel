@@ -44,7 +44,7 @@ function AEPModal(props) {
       type,
       title: titleSt,
       desc: descSt,
-      url: urlSt,
+      ...(urlSt && { url: urlSt }),
       start: startSt.format("YYYY"),
       end: endSt.format("YYYY"),
     };
@@ -59,6 +59,8 @@ function AEPModal(props) {
     let achieveData = {
       type,
       title: titleSt,
+      url: urlSt ? urlSt : "",
+      ...(urlSt && { url: urlSt }),
       desc: descSt,
     };
     if (!id) {
@@ -97,9 +99,6 @@ function AEPModal(props) {
         ExpState[id] = expData;
         setExperiences({ ...experiences, data: ExpState });
       } else if (type === "achievement") {
-        if (achieveData.url === "undefined") {
-          delete achieveData.url;
-        }
         AchieveState[id] = achieveData;
         console.log(achieveData);
         setAchievements({ ...experiences, data: AchieveState });
@@ -117,8 +116,8 @@ function AEPModal(props) {
     } else if (isAEPModalOpen === false) {
       setTitleSt("");
       setCompanySt("");
-      setDescSt();
-      setUrlSt();
+      setDescSt("");
+      setUrlSt("");
       setStartSt(dayjs());
       setEndSt(dayjs());
     }
@@ -129,7 +128,7 @@ function AEPModal(props) {
       <Modal
         isOpen={isAEPModalOpen}
         onOpenChange={onAEPModalOpenChange}
-        placement="bottom-center"
+        placement="center"
         isDismissable={false}
       >
         <ModalContent>
@@ -141,8 +140,9 @@ function AEPModal(props) {
                   autoFocus
                   isRequired
                   label={"Title"}
-                  placeholder={`Enter ${type === "experience" ? "job/internship" : type
-                    } title`}
+                  placeholder={`Enter ${
+                    type === "experience" ? "job/internship" : type
+                  } title`}
                   variant="flat"
                   value={titleSt}
                   onValueChange={(value) => setTitleSt(value)}

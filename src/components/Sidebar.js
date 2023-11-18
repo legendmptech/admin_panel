@@ -16,8 +16,9 @@ function Sidebar(props) {
         onBackdropClick={() => setToggled(false)}
       >
         <Menu closeOnClick={true}>
-          <MenuItem component={<Link to="/dashboard" />}>Dashboard</MenuItem>
+          <MenuItem component={<Link to="/" />}>Dashboard</MenuItem>
           <MenuItem component={<Link to="/portfolio" />}>Portfolio</MenuItem>
+          <MenuItem component={<Link to="/client" />}>Client</MenuItem>
         </Menu>
       </Bar>
       <span style={{ position: "absolute", top: 0, right: 20 }}>

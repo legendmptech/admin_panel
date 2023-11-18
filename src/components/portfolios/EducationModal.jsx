@@ -7,7 +7,7 @@ import {
   ModalBody,
   ModalContent,
   ModalFooter,
-  ModalHeader
+  ModalHeader,
 } from "@nextui-org/react";
 import { DatePicker } from "@mui/x-date-pickers";
 import { createId } from "../../functions/utility";
@@ -59,21 +59,21 @@ function EducationModal(props) {
     let data =
       type === "school"
         ? {
-          type,
-          place: placeSt,
-          std: stdSt,
-          percent: percentSt,
-          start: startSt.format("YYYY"),
-        }
+            type,
+            place: placeSt,
+            std: stdSt,
+            percent: percentSt,
+            start: startSt.format("YYYY"),
+          }
         : {
-          type,
-          place: placeSt,
-          degree: degreeSt,
-          percent: percentSt,
-          branch: branchSt,
-          start: startSt.format("YYYY"),
-          end: endSt.format("YYYY"),
-        };
+            type,
+            place: placeSt,
+            degree: degreeSt,
+            percent: percentSt,
+            branch: branchSt,
+            start: startSt.format("YYYY"),
+            end: endSt.format("YYYY"),
+          };
     if (!id) {
       const newId = createId();
       let eduList = educationList["list"];
@@ -99,7 +99,7 @@ function EducationModal(props) {
       <Modal
         isOpen={isEducationOpen}
         onOpenChange={onEducationOpenChange}
-        placement="bottom-center"
+        placement="center"
         isDismissable={false}
       >
         <ModalContent>

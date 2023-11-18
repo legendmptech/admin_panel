@@ -9,19 +9,13 @@ function PortfolioTab(props) {
     <div className="flex flex-col h-full content-center">
       <Tabs aria-label="Dynamic tabs">
         <Tab key={"customize"} title={"Customize"}>
-          <Card>
-            <CardBody><PortfolioCustomizeSubTab /></CardBody>
-          </Card>
+          <PortfolioCustomizeSubTab />
         </Tab>
         <Tab key={"settings"} title={"Settings"}>
-          <Card>
-            <CardBody><PortfolioSettingsSubTab /></CardBody>
-          </Card>
+          <PortfolioSettingsSubTab />
         </Tab>
         <Tab key={"user"} title={"Users"}>
-          <Card>
-            <CardBody><h1>User</h1></CardBody>
-          </Card>
+          <h1>User</h1>
         </Tab>
       </Tabs>
     </div>

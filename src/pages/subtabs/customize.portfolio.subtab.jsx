@@ -54,8 +54,7 @@ function PortfolioCustomizeSubTab(props) {
     onOpenChange: onSocialOpenChange,
   } = useDisclosure();
 
-  const [
-    currentModalProps, setCurrentModalProps] = useState({});
+  const [currentModalProps, setCurrentModalProps] = useState({});
 
   //   details
   const [name, setName] = useState("");
@@ -144,11 +143,21 @@ function PortfolioCustomizeSubTab(props) {
       setSocialLinks(userData.socialLinks);
       setSelectedSections(userData.sections);
     }
-  }, [available, userData?.achievements, userData?.education, userData?.experiences, userData?.personalDetails, userData?.projects, userData?.sections, userData?.skills, userData?.socialLinks]);
+  }, [
+    available,
+    userData?.achievements,
+    userData?.education,
+    userData?.experiences,
+    userData?.personalDetails,
+    userData?.projects,
+    userData?.sections,
+    userData?.skills,
+    userData?.socialLinks,
+  ]);
   return (
     <>
       <div className="flex flex-row justify-center">
-        {available === false ? (
+        {available === true ? (
           <div className="flex flex-col auth-card">
             <AuthPortfolio
               setAvailable={setAvailable}
@@ -156,7 +165,7 @@ function PortfolioCustomizeSubTab(props) {
             />
           </div>
         ) : (
-          <div className="flex flex-col gap-4 w-11/12 md:w-10/12 lg:w-9/12">
+          <div className="flex flex-col gap-4 w-full md:w-10/12 lg:w-9/12">
             <div className="flex flex-col w-full gap-4 content-center">
               {/* PERSONAL DETAILS */}
               <h1>Personal Details</h1>
