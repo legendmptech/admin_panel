@@ -10,7 +10,6 @@ import {
 } from "@nextui-org/react";
 import { useSelector } from "react-redux";
 import { getClientProps } from "../../store/clients";
-import dayjs from "dayjs";
 
 export default function ClientSTModal(props) {
   const { isOpen, onOpenChange } = props;
@@ -22,10 +21,10 @@ export default function ClientSTModal(props) {
   // const [services, setServices] = useState({});
   // const [transactions, setTransactions] = useState({});
   const [_id, _setId] = useState("");
-  const [typeSt, setTypeSt] = useState("");
-  const [amountSt, setAmountSt] = useState(0);
-  const [startDateSt, setStartDateSt] = useState("");
-  const [nextRenewDateSt, setNextRenewDateSt] = useState("");
+  // const [typeSt, setTypeSt] = useState("");
+  // const [amountSt, setAmountSt] = useState(0);
+  // const [startDateSt, setStartDateSt] = useState("");
+  // const [nextRenewDateSt, setNextRenewDateSt] = useState("");
 
   return (
     <>

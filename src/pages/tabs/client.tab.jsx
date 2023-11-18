@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import HomeLayout from "../../layouts/Home.layout";
 import { Button, useDisclosure } from "@nextui-org/react";
 import Icon from "../../components/Icon";
@@ -18,11 +18,12 @@ function ClientTab(props) {
     onOpen: onClientInfoOpen,
     onOpenChange: onClientInfoOpenChange,
   } = useDisclosure();
-  const [data, setData] = useState({});
-  const [clients, setClients] = useState({
-    list: [],
-    data: {},
-  });
+  // const [data, setData] = useState({});
+  // const [clients, setClients] = useState({
+  //   list: [],
+  //   data: {},
+  // });
+  // useEffect(() => {}, []);
   return (
     <div className="flex flex-col">
       <Dropdown>
@@ -55,9 +56,9 @@ function ClientTab(props) {
       />
       <div>
         <h2>Clients</h2>
-        {clients?.list?.map((id) => (
+        {/* {clients?.list?.map((id) => (
           <ClientCard id={"248325934895"} {...clients?.data[id]} />
-        ))}
+        ))} */}
       </div>
     </div>
   );
